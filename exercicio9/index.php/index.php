@@ -16,8 +16,22 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <form method="post">
+        Digite o seu nome completo: <input type="text" name="nome" required><br>
+        Digite a sua idade (anos completos): <input type="number" name="idade" min="0" required><br>
+        <button type="submit">Calcular</button>
+    </form>
      
+    <?php
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nome = $_POST['nome'];
+            $idade = $_POST['idade'];
+            $dias = $idade * 365;
+        
+            echo "$nome, você já viveu aproximadamente $dias dias.";
+        }
+    ?>
+
     </main>
 </body>
 
